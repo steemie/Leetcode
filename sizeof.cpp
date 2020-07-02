@@ -41,3 +41,30 @@ int main()
     cout<<sizeof(A2)<<endl;  //12  = 8+4
     return 0;
 }
+
+
+//多继承
+
+class A0
+{
+    virtual void fun() {}
+};
+class B
+{
+    virtual void fun2() {}
+};
+class C : virtual public  A0, virtual public B
+{
+    public:
+        virtual void fun3() {}
+};
+
+int main_print(A0 a,B b,C c)
+{
+    /**
+     * @brief 8 8 16  派生类虚继承多个虚函数，会继承所有虚函数的vptr
+     */
+    cout<<sizeof(a)<<" "<<sizeof(b)<<" "<<sizeof(c);
+
+    return 0;
+}
