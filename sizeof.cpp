@@ -11,6 +11,20 @@ class A
 
 };
 
+class A1
+{
+    public:
+        char a;
+        int b;
+};
+
+class A2
+{
+    A1 a;
+    //char a2;
+    short c; // 4字节对齐
+};
+
 int main()
 {
     /*
@@ -22,6 +36,8 @@ int main()
     - 虚函数继承，不管是单继承还是多继承，都是继承了基类的vptr。(32位操作系统4字节，64位操作系统 8字节)！
     - 虚继承,继承基类的vptr。
     */
-    cout<<sizeof(A)<<endl;
+    cout<<sizeof(A)<<endl; //16
+    cout<<sizeof(A1)<<endl; //8 
+    cout<<sizeof(A2)<<endl;  //12  = 8+4
     return 0;
 }
